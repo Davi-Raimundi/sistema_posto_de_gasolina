@@ -1,0 +1,44 @@
+create database if not exists Posto_De_Gasolina;
+use Posto_De_Gasolina;
+
+create table if not exists Combustivel (
+id_combustivel int auto_increment primary key,
+tipo varchar(50),
+preco_por_litro decimal(5,2)
+);
+
+create table if not exists Bombas (
+id_bomba int auto_increment primary key,
+id_combustivel int,
+descricao text
+);
+
+create table  if not exists Funcionarios (
+id_funcionario int auto_increment primary key,
+nome varchar(100),
+cargo varchar(50),
+turno enum("Manhã","Tarde","Noite"),
+telefone_funcionarios varchar(15)
+);
+
+create table Clientes (
+id_cliente int auto_increment primary key,
+nome_cliente varchar(100),
+telefone_cliente varchar(15),
+email_cliente varchar(100)
+);
+
+create table Abastecimentos (
+id_abastecimento int auto_increment primary key,
+volume decimal(6,2),
+valor_total decimal(8,2),
+data_abastecimento datetime
+);
+
+create table Servicos (
+id_servico int auto_increment primary key,
+descricao text,
+preco decimal(3,2)
+);
+
+
